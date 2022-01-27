@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/hometabs/callcenter"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Request</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">Department</ion-label>
+    <ion-select>
+      <ion-select-option value="f">Female</ion-select-option>
+      <ion-select-option value="m">Male</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Location/Room</ion-label>
+    <ion-input autocapitalize="on"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Facility</ion-label>
+    <ion-select>
+      <ion-select-option value="f">Female</ion-select-option>
+      <ion-select-option value="m">Male</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Discipline</ion-label>
+    <ion-select>
+      <ion-select-option value="f">Female</ion-select-option>
+      <ion-select-option value="m">Male</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Comment</ion-label>
+    <ion-textarea autocapitalize="on" rows="7" placeholder="Enter comment here..."></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" color="primary">Take Photo</ion-button>
+
+  <ion-button expand="full" color="primary">Generate Request</ion-button>
+
+</ion-content>
