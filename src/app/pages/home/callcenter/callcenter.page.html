@@ -4,20 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background-image">
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-button color="primary" [routerLink]="['/newrequest']">New Request</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="primary">Request List</ion-button>
+        <ion-button color="primary" [routerLink]="['/requestlist']">Request List</ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-button color="primary">Approvals</ion-button>
+        <ion-button color="primary" [routerLink]="['/approvals']">Approvals</ion-button>
       </ion-col>
       <ion-col>
         <ion-button color="primary">Statistics</ion-button>

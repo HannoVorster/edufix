@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'newrequest',
     loadChildren: () => import('./pages/newrequest/newrequest.module').then( m => m.NewrequestPageModule)
   },
+  {
+    path: 'requestlist',
+    loadChildren: () => import('./pages/requestlist/requestlist.module').then( m => m.RequestlistPageModule)
+  },
+  {
+    path: 'approvals',
+    loadChildren: () => import('./pages/approvals/approvals.module').then( m => m.ApprovalsPageModule)
+  },
 ];
 
 @NgModule({
