@@ -8,7 +8,9 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class RequestlistPage implements OnInit {
 
-  requests;
+  term = '';
+
+  requests = null;
 
   constructor(
     private api: ApiService
