@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-requestlist',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestlistPage implements OnInit {
 
-  constructor() { }
+  requests;
+
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit() {
+    this.loadData();
   }
+
+  loadData = () => {
+    this.api.requestList().subscribe(data => {
+      this.requests = data;
+    })
+  };
 
 }

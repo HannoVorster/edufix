@@ -10,9 +10,16 @@
 <ion-content>
   <ion-searchbar></ion-searchbar>
   <ion-item>
-    <ion-col><b>#</b></ion-col>
-    <ion-col><b>Date</b></ion-col>
-    <ion-col><b>Discipline</b></ion-col>
-    <ion-col><b>Status</b></ion-col>
+    <ion-col size="2"><b>#</b></ion-col>
+    <ion-col size="3"><b>Date</b></ion-col>
+    <ion-col size="4"><b>Discipline</b></ion-col>
+    <ion-col size="3"><b>Status</b></ion-col>
+  </ion-item>
+
+  <ion-item *ngFor="let request of requests">
+    <ion-col size="2">{{ request.id }}</ion-col>
+    <ion-col size="3">{{ request.dateCreated | date: 'yyyy-MM-dd' }}</ion-col>
+    <ion-col size="4">{{ request.discipline }}</ion-col>
+    <ion-col size="3">{{ request.status }}</ion-col>
   </ion-item>
 </ion-content>

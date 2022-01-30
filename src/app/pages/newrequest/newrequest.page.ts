@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Newrequest } from 'src/app/models/newrequest';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -9,9 +9,17 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class NewrequestPage implements OnInit {
 
+  // Dropdown values...
   departments: any;
   facilities: any;
   disciplines: any;
+
+  // Inputs...
+  department = '';
+  locationRoom = '';
+  facility = '';
+  discipline = '';
+  comment = '';
 
   constructor(
     private api: ApiService
@@ -21,7 +29,7 @@ export class NewrequestPage implements OnInit {
     this.loadData();
   }
 
-  loadData() {
+  loadData = () => {
     this.api.dropDownValues("DP").subscribe((data: any) => {
       this.departments = data;
     });
@@ -33,6 +41,20 @@ export class NewrequestPage implements OnInit {
     this.api.dropDownValues("DI").subscribe((data: any) => {
       this.disciplines = data;
     });
-  }
+  };
 
+  generateRequest = () => {
+    const obj: Newrequest = {
+      department: this.department,
+      locationRoom: this.locationRoom,
+      facility: this.facility,
+      discipline: this.discipline,
+      newComment: this.comment,
+      userCreated: 'test'
+    }
+
+    this.api.newRequest(obj).subscribe((data: any) => {
+      console.log(data);
+    })
+  };
 }
