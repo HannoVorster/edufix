@@ -12,8 +12,8 @@
   <ion-item>
     <ion-label position="floating">Department</ion-label>
     <ion-select>
-      <ion-select-option value="f">Female</ion-select-option>
-      <ion-select-option value="m">Male</ion-select-option>
+      <ion-select-option *ngFor="let department of departments" [value]="department.id">{{ department.description }}
+      </ion-select-option>
     </ion-select>
   </ion-item>
 
@@ -25,16 +25,16 @@
   <ion-item>
     <ion-label position="floating">Facility</ion-label>
     <ion-select>
-      <ion-select-option value="f">Female</ion-select-option>
-      <ion-select-option value="m">Male</ion-select-option>
+      <ion-select-option *ngFor="let facility of facilities" [value]="facility.id">{{ facility.description }}
+      </ion-select-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Discipline</ion-label>
     <ion-select>
-      <ion-select-option value="f">Female</ion-select-option>
-      <ion-select-option value="m">Male</ion-select-option>
+      <ion-select-option *ngFor="let discipline of disciplines" [value]="discipline.id">{{ discipline.description }}
+      </ion-select-option>
     </ion-select>
   </ion-item>
 
