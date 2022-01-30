@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class RequestlistPage implements OnInit {
   requests = null;
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,5 +27,10 @@ export class RequestlistPage implements OnInit {
       this.requests = data;
     })
   };
+
+  openDetailed = (req) => {
+    console.log(req);
+    this.router.navigateByUrl('/detailedtabs/contractor')
+  }
 
 }

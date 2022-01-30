@@ -17,7 +17,7 @@
     <ion-col size="3"><b>Status</b></ion-col>
   </ion-item>
 
-  <ion-item *ngFor="let request of requests">
+  <ion-item *ngFor="let request of requests" (click)="openDetailed(request)">
     <ion-col size="2">{{ request.id }}</ion-col>
     <ion-col size="3">{{ request.dateCreated | date: 'yyyy-MM-dd' }}</ion-col>
     <ion-col size="4">{{ request.discipline }}</ion-col>

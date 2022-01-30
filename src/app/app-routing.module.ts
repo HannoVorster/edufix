@@ -31,6 +31,26 @@ const routes: Routes = [
     path: 'approvals',
     loadChildren: () => import('./pages/approvals/approvals.module').then( m => m.ApprovalsPageModule)
   },
+  {
+    path: 'detailedtabs',
+    loadChildren: () => import('./pages/detailed/detailedtabs/detailedtabs.module').then( m => m.DetailedtabsPageModule)
+  },
+  {
+    path: 'contractor',
+    loadChildren: () => import('./pages/detailed/contractor/contractor.module').then( m => m.ContractorPageModule)
+  },
+  {
+    path: 'inspect',
+    loadChildren: () => import('./pages/detailed/inspect/inspect.module').then( m => m.InspectPageModule)
+  },
+  {
+    path: 'signoff',
+    loadChildren: () => import('./pages/detailed/signoff/signoff.module').then( m => m.SignoffPageModule)
+  },
+  {
+    path: 'invoice',
+    loadChildren: () => import('./pages/detailed/invoice/invoice.module').then( m => m.InvoicePageModule)
+  },
 ];
 
 @NgModule({
