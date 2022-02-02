@@ -29,8 +29,7 @@ export class RequestlistPage implements OnInit {
   };
 
   openDetailed = (req) => {
-    console.log(req);
-    this.router.navigateByUrl('/detailedtabs/contractor')
+    this.router.navigateByUrl(`/assess/${req.id}`)
   }
 
 }

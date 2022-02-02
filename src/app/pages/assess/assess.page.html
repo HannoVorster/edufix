@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/requestlist"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/hometabs/callcenter']">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Assess</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <h4>Request Details</h4>
+  </ion-item-divider>
+
+  <div class="ion-padding" *ngIf="detailed">
+    <p>Request Id: {{ detailed.id }}</p>
+    <p>Date Reported: {{ detailed.dateCreated }}</p>
+    <p>Reported By: {{ detailed.userCreated }}</p>
+    <p>Department: {{ detailed.department }}</p>
+    <p>Discipline: {{ detailed.discipline }}</p>
+    <p>Comment: {{ detailed.newComment }}</p>
+    <p>Status: {{ detailed.status }}</p>
+    <p>Location / Room: {{ detailed.locationRoom }}</p>
+    <p>School: {{ detailed.facility }}</p>
+  </div>
+
+  <ion-item-divider>
+    <h4>Additional Info</h4>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label position="floating">Required Response Time</ion-label>
+    <ion-select [(ngModel)]="responseTime">
+      <ion-select-option value="Today">Today</ion-select-option>
+      <ion-select-option value="Tomorrow">Tomorrow</ion-select-option>
+      <ion-select-option value="This Week">This Week</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Emergency / Normal</ion-label>
+    <ion-select [(ngModel)]="emergencyNormal">
+      <ion-select-option value="Fatal">Fatal</ion-select-option>
+      <ion-select-option value="Critical">Critical</ion-select-option>
+      <ion-select-option value="Normal">Normal</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Comment</ion-label>
+    <ion-textarea [(ngModel)]="comment" autocapitalize="on" rows="7" placeholder="Enter comment here...">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" (click)="submitAssessment()">Submit Assessment</ion-button>
+</ion-content>

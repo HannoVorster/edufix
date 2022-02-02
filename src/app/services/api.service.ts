@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Department } from '../models/department';
 import { Newrequest } from '../models/newrequest';
 import { Requestlist } from '../models/requestlist';
+import { Assessment } from '../models/assessment';
+import { Approval } from '../models/approval';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +27,31 @@ export class ApiService {
   /*
     * Requests...
   */
-  newRequest(obj: Newrequest) {
+  newRequest = (obj: Newrequest) => {
     return this.http.post(`${this.apiUrl}/request/newrequest`, obj);
-  }
+  };
 
-  requestList() {
+  requestList = () => {
     return this.http.get<Requestlist>(`${this.apiUrl}/request/requestlist`);
-  }
+  };
+
+  approvalsList = () => {
+    return this.http.get<Requestlist>(`${this.apiUrl}/request/approvalslist`);
+  };
+
+  detailedAssess = (id: string) => {
+    return this.http.get(`${this.apiUrl}/request/detailedassess/${id}`);
+  };
+
+  detailedApprove = (id: string) => {
+    return this.http.get(`${this.apiUrl}/request/detailedapprove/${id}`);
+  };
+
+  postAssessment = (obj: Assessment) => {
+    return this.http.post(`${this.apiUrl}/request/assessment`, obj);
+  };
+
+  postApproval = (obj: Approval) => {
+    return this.http.post(`${this.apiUrl}/request/approval`, obj);
+  };
 }

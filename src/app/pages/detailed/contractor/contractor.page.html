@@ -13,5 +13,23 @@
 </ion-header>
 
 <ion-content>
+  <ion-item-divider>
+    <h4>Request Details</h4>
+  </ion-item-divider>
 
+  <div *ngIf="detailed">
+    <p>Request Id: {{ detailed.id }}</p>
+    <p>Date Reported: {{ detailed.dateCreated }}</p>
+    <p>Reported By: {{ detailed.userCreated }}</p>
+    <p>Department: {{ detailed.department }}</p>
+    <p>Discipline: {{ detailed.discipline }}</p>
+    <p>Comment: {{ detailed.newComment }}</p>
+    <p>Status: {{ detailed.status }}</p>
+    <p>Location / Room: {{ detailed.locationRoom }}</p>
+    <p>School: {{ detailed.facility }}</p>
+  </div>
+
+  <ion-item-divider>
+    <h4>Additional Info</h4>
+  </ion-item-divider>
 </ion-content>

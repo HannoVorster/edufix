@@ -9,7 +9,7 @@ const routes: Routes = [
     component: DetailedtabsPage,
     children: [
       {
-        path: 'contractor',
+        path: 'contractor/:id',
         loadChildren: () => import('../contractor/contractor.module').then(m => m.ContractorPageModule)
       },
       {

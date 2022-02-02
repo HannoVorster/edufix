@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/requestlist"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/hometabs/callcenter']">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Approve</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <h4>Request Details</h4>
+  </ion-item-divider>
+
+  <div class="ion-padding" *ngIf="detailed">
+    <p>Request Id: {{ detailed.id }}</p>
+    <p>Date Reported: {{ detailed.dateCreated | date: 'yyyy-MM-dd HH:mm' }}</p>
+    <p>Reported By: {{ detailed.userCreated }}</p>
+    <p>Department: {{ detailed.department }}</p>
+    <p>Discipline: {{ detailed.discipline }}</p>
+    <p>Comment: {{ detailed.newComment }}</p>
+    <p>Status: {{ detailed.status }}</p>
+    <p>Location / Room: {{ detailed.locationRoom }}</p>
+    <p>School: {{ detailed.facility }}</p>
+  </div>
+
+  <ion-item-divider>
+    <h4>Additional Info</h4>
+  </ion-item-divider>
+
+  <div class="ion-padding" *ngIf="detailed">
+    <p>Required Response Time: {{ detailed.responseTime }}</p>
+    <p>Emergency / Normal: {{ detailed.emergencyNormal }}</p>
+    <p>Assess Comment: {{ detailed.assessComment }}</p>
+  </div>
+
+  <ion-item-divider>
+    <h4>Approval</h4>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label position="floating">Mandated</ion-label>
+    <ion-select [(ngModel)]="mandated">
+      <ion-select-option value="Myself">Myself:</ion-select-option>
+      <ion-select-option value="School Principal">School Principal</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Comment</ion-label>
+    <ion-textarea [(ngModel)]="comment" autocapitalize="on" rows="7" placeholder="Enter comment here...">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-button color="danger" (click)="clearPad()">Clear Signature</ion-button>
+  <canvas #canvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+  <ion-text>Please sign above in the block</ion-text>
+
+  <ion-button expand="full" color="primary" (click)="submitApproval()">Submit Approval</ion-button>
+</ion-content>

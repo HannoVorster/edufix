@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-approvals',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApprovalsPage implements OnInit {
 
-  constructor() { }
+  term = '';
+
+  requests = null;
+
+  constructor(
+    private api: ApiService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData = () => {
+    this.api.approvalsList().subscribe(data => {
+      this.requests = data;
+    })
+  };
+
+  openDetailed = (req) => {
+    this.router.navigateByUrl(`/approve/${req.id}`)
   }
 
 }

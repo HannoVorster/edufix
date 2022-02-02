@@ -5,23 +5,42 @@
 </ion-header>
 
 <ion-content class="background-image">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button color="primary" [routerLink]="['/newrequest']">New Request</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button color="primary" [routerLink]="['/requestlist']">Request List</ion-button>
-      </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-button color="primary" [routerLink]="['/approvals']">Approvals</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button color="primary">Statistics</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="wrapper">
+    <ion-grid class="square">
+
+      <ion-row>
+        <ion-col size="6" [routerLink]="['/newrequest']">
+          <div style="background-color: white; text-align: center;">
+            <ion-img src="../../../../assets/newjob.png"></ion-img>
+            <ion-button fill="clear" color='primary' [routerLink]="['/newrequest']"><b>New Job</b></ion-button>
+          </div>
+        </ion-col>
+        <ion-col size="6" [routerLink]="['/requestlist']">
+          <div style="background-color: white; text-align: center;">
+            <ion-img src="../../../../assets/jobslist.png"></ion-img>
+            <ion-button fill="clear" color='primary' [routerLink]="['/requestlist']"><b>Jobs List</b></ion-button>
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" [routerLink]="['/approvals']">
+          <div style="background-color: white; text-align: center;">
+            <ion-img src="../../../../assets/jobslist.png"></ion-img>
+            <ion-button fill="clear" [routerLink]="['/approvals']"><b>Approvals</b></ion-button>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div style="background-color: white; text-align: center;">
+            <ion-img src="../../../../assets/statistics.png"></ion-img>
+            <ion-button fill="clear" color='primary'><b>Statistics</b></ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
 </ion-content>
