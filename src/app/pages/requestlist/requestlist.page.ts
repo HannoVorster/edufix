@@ -29,7 +29,15 @@ export class RequestlistPage implements OnInit {
   };
 
   openDetailed = (req) => {
-    this.router.navigateByUrl(`/assess/${req.id}`)
-  }
+    if (req.status === 'N')
+      this.router.navigateByUrl(`/assess/${req.id}`)
+    else
+      this.router.navigateByUrl(`/detailedtabs/contractor/${req.id}`);
+  };
+
+  doRefresh = (event: any) => {
+    this.loadData();
+    event.target.complete();
+  };
 
 }

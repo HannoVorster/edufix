@@ -32,4 +32,9 @@ export class ApprovalsPage implements OnInit {
     this.router.navigateByUrl(`/approve/${req.id}`)
   }
 
+  doRefresh = (event: any) => {
+    this.loadData();
+    event.target.complete();
+  };
+
 }

@@ -17,7 +17,7 @@
     <h4>Request Details</h4>
   </ion-item-divider>
 
-  <div *ngIf="detailed">
+  <div class="ion-padding" *ngIf="detailed">
     <p>Request Id: {{ detailed.id }}</p>
     <p>Date Reported: {{ detailed.dateCreated }}</p>
     <p>Reported By: {{ detailed.userCreated }}</p>
@@ -32,4 +32,38 @@
   <ion-item-divider>
     <h4>Additional Info</h4>
   </ion-item-divider>
+
+  <div class="ion-padding" *ngIf="detailed">
+    <p>Contractor: {{ detailed.contractor }}</p>
+    <p>Required Response Time: {{ detailed.responseTime }}</p>
+    <p>Emergency / Normal: {{ detailed.emergencyNormal }}</p>
+    <p>Assess Comment: {{ detailed.assessComment }}</p>
+  </div>
+
+  <ion-item-divider>
+    <h4>Approval</h4>
+  </ion-item-divider>
+
+  <div class="ion-padding" *ngIf="detailed">
+    <p>Mandated: {{ detailed.approveMandate }}</p>
+    <p>Comment: {{ detailed.approveComment }}</p>
+    <p>User: {{ detailed.approveUser }}</p>
+  </div>
+
+  <ion-item-divider>
+    <h4>Contractor</h4>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label>I accept the terms and conditions</ion-label>
+    <ion-checkbox slot="start"></ion-checkbox>
+  </ion-item>
+
+  <ion-button expand="full" color="primary">View Terms & Conditions</ion-button>
+
+  <canvas #canvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+  <ion-text>Please sign above in the block</ion-text>
+
+  <ion-button expand="full" color="primary">Accept</ion-button>
+  <ion-button expand="full" color="danger">Reject</ion-button>
 </ion-content>

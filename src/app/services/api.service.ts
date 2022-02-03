@@ -47,6 +47,10 @@ export class ApiService {
     return this.http.get(`${this.apiUrl}/request/detailedapprove/${id}`);
   };
 
+  detailedContractor = (id: string) => {
+    return this.http.get(`${this.apiUrl}/request/detailedcontractor/${id}`);
+  };
+
   postAssessment = (obj: Assessment) => {
     return this.http.post(`${this.apiUrl}/request/assessment`, obj);
   };

@@ -57,7 +57,6 @@
     </ion-textarea>
   </ion-item>
 
-  <ion-button color="danger" (click)="clearPad()">Clear Signature</ion-button>
   <canvas #canvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
   <ion-text>Please sign above in the block</ion-text>
 
